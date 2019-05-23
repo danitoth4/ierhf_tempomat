@@ -18,12 +18,13 @@ public class DistanceMonitorGUI extends AgArch
 	{
 		super();
 		
+		distanceField = new JTextField();
 		setDistanceButton = new JButton("Set Distance!");
 		setDistanceButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try 
 				{
-					Literal goal = ASSyntax.createLiteral("distanceChanged", ASSyntax.createNumber(20));
+					Literal goal = ASSyntax.createLiteral("distanceChanged", ASSyntax.createNumber(Double.parseDouble(distanceField.getText())));
 					getTS().getC().addAchvGoal(goal, null);
 				}
 				catch(Exception ex)
@@ -32,8 +33,6 @@ public class DistanceMonitorGUI extends AgArch
 				}
             }
         });
-		
-		distanceField = new JTextField();
 		grid = new GridLayout(2, 1);
 		frame = new JFrame("Distance Monitor");
 		frame.getContentPane().setLayout(grid);

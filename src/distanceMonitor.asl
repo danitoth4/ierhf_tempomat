@@ -3,7 +3,7 @@
 
 
 /* Initial beliefs and rules */
-
+distance(0).
 
 
 /* Initial goals */
@@ -20,6 +20,6 @@
 
 +!start : true <- .print("hello world.").
 
-+!distanceChanged(DI) : true <- .print("Distance changed to ", DI).
++!distanceChanged(DI) : true <- -+distance(DI); .print("Distance changed to ", DI).
 
 
