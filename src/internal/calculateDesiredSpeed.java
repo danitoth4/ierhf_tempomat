@@ -29,9 +29,9 @@ public class calculateDesiredSpeed extends DefaultInternalAction {
 		if(args[0].isNumeric() && args[1].isNumeric())
 		{
 	
-		double t = ((NumberTermImpl)args[0]).solve() / ((NumberTermImpl)args[1]).solve();
-			int i = (int)Math.floor(t);
-			return un.unifies(args[2], new NumberTermImpl(i * 5));
+			double t = ((NumberTermImpl)args[0]).solve() / ((NumberTermImpl)args[1]).solve();
+				int i = (int)Math.floor(t);
+				return un.unifies(args[2], new NumberTermImpl(i * 5));
 		}
 		return false;
     }

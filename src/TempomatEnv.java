@@ -15,12 +15,6 @@ public class TempomatEnv extends Environment {
 
 
     private Logger logger = Logger.getLogger("ier_hf_project.mas2j."+TempomatEnv.class.getName());
-	
-	private double dist_t_1;
-	private double dist_t;
-	private double speed_t_1 = 0;
-	private double speed_t = 0;
-
 
 
     /** Called before the MAS execution with the args informed in .mas2j */
@@ -58,27 +52,6 @@ public class TempomatEnv extends Environment {
 				logger.info(t.toString());
 			}
 			
-			switch(action.getFunctor())
-			{
-				case "speed_t":
-					if(action.getTerm(0).isNumeric())
-					{
-						this.speed_t = ((NumberTerm)action.getTerm(0)).solve();		
-					}
-					break;
-				case "distance":
-					if(action.getTerm(0).isNumeric())
-					{
-						this.dist_t_1 = ((NumberTermImpl)action.getTerm(0)).solve();		
-					}		
-					if(action.getTerm(1).isNumeric())
-					{
-						this.dist_t = ((NumberTermImpl)action.getTerm(1)).solve();		
-					}
-					break;
-				default:
-					break;
-			}
 		}
 		catch(Exception e)
 		{
