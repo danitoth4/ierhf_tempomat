@@ -45,6 +45,13 @@ public class TempomatEnv extends Environment {
 
         logger.info(" [" + agName + "] doing: " + action);
 
+		logger.info(action.getFunctor());
+		
+		for(Term t: action.getTerms())
+		{
+			logger.info(t.toString());
+		}
+		
         if (true) { // you may improve this condition
 
              //informAgsEnvironmentChanged();
