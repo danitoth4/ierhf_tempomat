@@ -11,3 +11,5 @@ actual_speed(10).
 +!actual_speed_changed(S) : true <- -+actual_speed(S); .print("Actual speed changed to ", S); .send(distanceMonitor, achieve, actual_speed_changed(S)); speed_t(S); !send_message.
 +!send_message : actual_speed(A) & ref_speed(R) & A > R <- .send(actuator, tell, slow_down).
 +!send_message : actual_speed(A) & ref_speed(R) & A < R <- .send(actuator, tell, accelerate).
++!accelerate : true <- ?actual_speed(S); S = S + 5; -+actual_speed(S); !actual_speed_changed.
++!slow_down : true <- ?actual_speed(S); S = S - 5; -+actual_speed(S); !actual_speed_changed.

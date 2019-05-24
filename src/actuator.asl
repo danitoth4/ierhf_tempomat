@@ -6,8 +6,6 @@ distance(0).
 prev_distance(0).
 
 /* Initial goals */
-!avoid_collision.
-!follow_ref_speed.
 
 /* Plans */
 +!speed_changed(S) : true <- -+ref_speed(S); .print("Ref speed changed to ", S); .send(speedController, achieve, ref_speed_changed(S)).
