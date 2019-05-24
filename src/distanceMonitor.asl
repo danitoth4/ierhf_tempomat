@@ -13,3 +13,5 @@ actual_speed(10).
 +!calculate : true <- ?distance(D); ?actual_speed(S); internal.calculateDesiredSpeed(D, S, X); !send_message(X).
 +!send_message(M) : actual_speed(A) & A > M <- .send(actuator, tell, slow_down).
 +!send_message(M) : actual_speed(A) & A < M <- .send(actuator, tell, accelerate).
++?speed_change(X) : actual_speed(A) & A > M <- X = slow_down.
++?speed_change(X) : actual_speed(A) & A < M <- X = accelerate.
