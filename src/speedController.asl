@@ -24,7 +24,7 @@ actual_speed(0).
 
 +!slow_down : actual_speed(S) & S > 0 <-
 	?actual_speed(S);
-	NewSpeed = S - 2;
+	NewSpeed = S - 3;
 	!actual_speed_changed(NewSpeed).
 	
 +!slow_down : actual_speed(S) & S == 0 <-
