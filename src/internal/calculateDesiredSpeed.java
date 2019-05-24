@@ -12,10 +12,13 @@ public class calculateDesiredSpeed extends DefaultInternalAction {
     public Object execute(TransitionSystem ts, Unifier un, Term[] args) throws Exception {
         // execute the internal action
         ts.getAg().getLogger().info("executing internal action 'internal.calculateDesiredSpeed'");
-		
-		double t = (double)args[0] / (double)args[1];
-		int i = (int)Math.floor(t);
-		return i * 5;
+		if(args[0].isNumeric() && args[1].isNumeric())
+		{
+			double t = ((NumberTermImpl)args[0]).solve() / ((NumberTermImpl)args[1]).solve();
+			int i = (int)Math.floor(t);
+			return un.unifies(args[3], i * 5);
+		}
+		return false;
     }
 }
 
