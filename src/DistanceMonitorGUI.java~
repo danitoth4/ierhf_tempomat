@@ -7,25 +7,24 @@ import javax.swing.*;
 import java.awt.event.*;
 
 
-public class SpeedControllerGUI extends AgArch
+public class DistanceMonitorGUI extends AgArch
 {
 	GridLayout grid;
-	JTextField referenceSpeedField;
+	JTextField distanceField;
 	JFrame frame;
-	JButton setSpeedButton;
+	JButton setDistanceButton;
 	
-	public SpeedControllerGUI()
+	public DistanceMonitorGUI()
 	{
 		super();
 		
-		referenceSpeedField = new JTextField();
-		setSpeedButton = new JButton("Set speed!");
-		
-		setSpeedButton.addActionListener(new ActionListener() {
+		distanceField = new JTextField();
+		setDistanceButton = new JButton("Set Distance!");
+		setDistanceButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try 
 				{
-					Literal goal = ASSyntax.createLiteral("speedChanged", ASSyntax.createNumber(Double.parseDouble(referenceSpeedField.getText())));
+					Literal goal = ASSyntax.createLiteral("distanceChanged", ASSyntax.createNumber(Double.parseDouble(distanceField.getText())));
 					getTS().getC().addAchvGoal(goal, null);
 				}
 				catch(Exception ex)
@@ -35,11 +34,11 @@ public class SpeedControllerGUI extends AgArch
             }
         });
 		grid = new GridLayout(2, 1);
-		frame = new JFrame("Speed Controller Monitor");
+		frame = new JFrame("Distance Monitor");
 		frame.getContentPane().setLayout(grid);
-		frame.add(referenceSpeedField);
-		frame.add(setSpeedButton);
-		frame.setSize(300, 100);
+		frame.add(distanceField);
+		frame.add(setDistanceButton);
+		frame.setSize(300, 300);
 		frame.setResizable(false);
 		frame.setVisible(true);
 	}

@@ -9,9 +9,9 @@ import java.awt.event.*;
 
 public class DistanceMonitorGUI extends AgArch
 {
+	JFrame frame;
 	GridLayout grid;
 	JTextField distanceField;
-	JFrame frame;
 	JButton setDistanceButton;
 	
 	public DistanceMonitorGUI()
@@ -38,7 +38,7 @@ public class DistanceMonitorGUI extends AgArch
 		frame.getContentPane().setLayout(grid);
 		frame.add(distanceField);
 		frame.add(setDistanceButton);
-		frame.setSize(300, 300);
+		frame.setSize(300, 100);
 		frame.setResizable(false);
 		frame.setVisible(true);
 	}
