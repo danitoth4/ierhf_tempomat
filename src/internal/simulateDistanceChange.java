@@ -10,7 +10,7 @@ public class simulateDistanceChange extends DefaultInternalAction {
 
 	
     @Override
-    public Object execute(TransitionSystem ts, Unifier un, Term[] args) throws Exception {
+    public Object execute(TransitionSystem ts, Unifier un, Term[] args) throws Exception{
         // execute the internal action
         ts.getAg().getLogger().info("executing internal action 'internal.simulateDistanceChange'");
         
@@ -18,11 +18,9 @@ public class simulateDistanceChange extends DefaultInternalAction {
 		double dist_t = ((NumberTermImpl)args[1]).solve();
 		double speed_t_1 = ((NumberTermImpl)args[2]).solve();
 		double speed_t = ((NumberTermImpl)args[3]).solve();
-		
-		double other = dist_t - dist_t_1 + speed_t_1;
-		
-		
-        // everything ok, so returns true
+		double other = dist_t - dist_t_1 + speed_t_1;		
+		boolean result = un.unifies(args[4], new NumberTermImpl(dist_t)) && un.unifies(args[5], new NumberTermImpl(dist_t + other - speed_t));
+
         return true;
     }
 }
