@@ -30,10 +30,8 @@ prev_distance(0).
 	.print("Distances changed to ", D1, ", ", D2);
 	.send(distanceMonitor, achieve, distance_changed(D1,D2)).
 	
-+!decide : speed_change(slow_down)[source(distanceMonitor)]  & speed_change(slow_down)[source(speedController)] <-
-	.send(speedController, achieve, slow_down).
 
-+!decide : speed_change(slow_down)[source(distanceMonitor)]  & speed_change(accelerate)[source(speedController)] <-
++!decide : speed_change(slow_down)[source(distanceMonitor)]  <-
 	.send(speedController, achieve, slow_down).
 
 +!decide : speed_change(accelerate)[source(distanceMonitor)]  & speed_change(slow_down)[source(speedController)] <-

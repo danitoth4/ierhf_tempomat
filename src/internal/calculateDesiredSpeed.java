@@ -31,7 +31,7 @@ public class calculateDesiredSpeed extends DefaultInternalAction {
 	
 			double t = ((NumberTermImpl)args[0]).solve() / ((NumberTermImpl)args[1]).solve();
 				int i = (int)Math.floor(t);
-				return un.unifies(args[2], new NumberTermImpl(i * 5));
+				return un.unifies(args[2], new NumberTermImpl(i));
 		}
 		return false;
     }
