@@ -32,7 +32,7 @@ public class ActuatorGUI extends AgArch
             public void actionPerformed(ActionEvent e) {
                 try 
 				{
-					Literal goal = ASSyntax.createLiteral("speedChanged", ASSyntax.createNumber(Double.parseDouble(referenceSpeedField.getText())));
+					Literal goal = ASSyntax.createLiteral("speed_changed", ASSyntax.createNumber(Double.parseDouble(referenceSpeedField.getText())));
 					getTS().getC().addAchvGoal(goal, null);
 				}
 				catch(Exception ex)
@@ -46,7 +46,7 @@ public class ActuatorGUI extends AgArch
             public void actionPerformed(ActionEvent e) {
                 try 
 				{
-					Literal goal = ASSyntax.createLiteral("distanceChanged", ASSyntax.createNumber(Double.parseDouble(distance_t_1_Field.getText())), ASSyntax.createNumber(Double.parseDouble(distance_t_Field.getText())) );
+					Literal goal = ASSyntax.createLiteral("distance_changed", ASSyntax.createNumber(Double.parseDouble(distance_t_1_Field.getText())), ASSyntax.createNumber(Double.parseDouble(distance_t_Field.getText())) );
 					getTS().getC().addAchvGoal(goal, null);
 				}
 				catch(Exception ex)

@@ -2,8 +2,10 @@
 
 /* Initial beliefs and rules */
 ref_speed(0).
+actual_speed(0).
 
 /* Initial goals */
 
 /* Plans */
-+!speedChanged(S) : true <- -+ref_speed(S); .print('Ref speed changed to ', S).
++!ref_speed_changed(S) : true <- -+ref_speed(S); .print("Ref speed changed to ", S).
++!actual_speed_changed(S) : true <- -+actual_speed(S); .print("Actual speed changed to ", S); .send(distanceMonitor, achieve, actual_speed_changed(S)).

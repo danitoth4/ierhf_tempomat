@@ -9,6 +9,6 @@ prev_distance(0).
 
 
 /* Plans */
-+!speedChanged(S) : true <- -+ref_speed(S); .print("Ref speed changed to ", S); .send(speedController, achieve, speedChanged(S)).
-+!distanceChanged(D1,D2) : true <- -+prev_distance(D1); -+prev_distance(D2); .print("Distances changed to ", D1, ", ", D2); .send(distanceMonitor, achieve, distanceChanged(D1,D2)).
++!speed_changed(S) : true <- -+ref_speed(S); .print("Ref speed changed to ", S); .send(speedController, achieve, ref_speed_changed(S)).
++!distance_changed(D1,D2) : true <- -+prev_distance(D1); -+prev_distance(D2); .print("Distances changed to ", D1, ", ", D2); .send(distanceMonitor, achieve, distance_changed(D1,D2)).
 
