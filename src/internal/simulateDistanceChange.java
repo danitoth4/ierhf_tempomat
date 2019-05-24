@@ -12,7 +12,7 @@ public class simulateDistanceChange extends DefaultInternalAction {
     @Override
     public Object execute(TransitionSystem ts, Unifier un, Term[] args) throws Exception{
         // execute the internal action
-        ts.getAg().getLogger().info("executing internal action 'internal.simulateDistanceChange'");
+        //ts.getAg().getLogger().info("executing internal action 'internal.simulateDistanceChange'");
         
 		double dist_t_1 = ((NumberTermImpl)args[0]).solve();
 		double dist_t = ((NumberTermImpl)args[1]).solve();

@@ -14,8 +14,7 @@ actual_speed(0).
 +!actual_speed_changed(S) : true <-
 	-+actual_speed(S);
 	.print("Actual speed changed to ", S);
-	.send(distanceMonitor, achieve, actual_speed_changed(S));
-	speed_t(S).
+	.send(distanceMonitor, achieve, actual_speed_changed(S)).
 
 +!accelerate : true <-
 	?actual_speed(S);

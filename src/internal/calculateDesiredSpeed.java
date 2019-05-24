@@ -24,7 +24,7 @@ public class calculateDesiredSpeed extends DefaultInternalAction {
 
         // execute the internal action
 
-        ts.getAg().getLogger().info("executing internal action 'internal.calculateDesiredSpeed'");
+        //ts.getAg().getLogger().info("executing internal action 'internal.calculateDesiredSpeed'");
 
 		if(args[0].isNumeric() && args[1].isNumeric())
 		{

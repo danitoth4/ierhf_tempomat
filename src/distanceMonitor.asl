@@ -18,11 +18,9 @@ max_speed(0).
 +!actual_speed_changed(S) : true <-
 	?actual_speed(OS);
 	-+actual_speed(S);
-	.print("Actual speed changed to ", S);
 	?prev_distance(PD1);
 	?distance(PD2);
 	internal.simulateDistanceChange(PD1, PD2, OS, S, D1, D2);
-	.print("DEBUG -- PD1: ",PD1," PD2: ",PD2," OS: ",OS," S: ",S," D1: ",D1," D2: ", D2);
 	!distance_changed(D1, D2);
 	!calculate.
 
