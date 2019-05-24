@@ -36,7 +36,7 @@ MAS ier_hf_project {
 
         actuator;
 
-        speedController;
+        speedController agentArchClass SpeedControllerGUI;
 
         distanceMonitor agentArchClass DistanceMonitorGUI;
 
