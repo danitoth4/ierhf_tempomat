@@ -3,10 +3,11 @@
 /* Initial beliefs and rules */
 distance(0).
 prev_distance(0).
-actual_speed(0).
+actual_speed(10).
 
 /* Initial goals */
 
 /* Plans */
-+!distance_changed(D1,D2) : true <- -+prev_distance(D1); -+prev_distance(D2); .print("Distances changed to ", D1, ", ", D2).
-+!actual_speed_changed(S) : true <- -+actual_speed(S); .print("Actual speed changed to ", S).
++!distance_changed(D1,D2) : true <- -+prev_distance(D1); -+distance(D2); .print("Distances changed to ", D1, ", ", D2); !calculate.
++!actual_speed_changed(S) : true <- -+actual_speed(S); .print("Actual speed changed to ", S); !calculate.
++!calculate : true <- ?distance(D); ?actual_speed(S); internal.calculateDesiredSpeed(D, S, X); .print("Distance: ", D, " Actual speed: ", S, " Desired speed: ", X).

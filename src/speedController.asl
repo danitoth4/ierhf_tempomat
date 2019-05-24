@@ -2,7 +2,7 @@
 
 /* Initial beliefs and rules */
 ref_speed(0).
-actual_speed(0).
+actual_speed(10).
 
 /* Initial goals */
 
