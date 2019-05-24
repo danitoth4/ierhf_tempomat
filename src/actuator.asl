@@ -1,21 +1,14 @@
 // Agent actuator in project ier_hf_project.mas2j
 
-
-
 /* Initial beliefs and rules */
-
-
+ref_speed(0).
+distance(0).
+prev_distance(0).
 
 /* Initial goals */
 
 
-
-!start.
-
-
-
 /* Plans */
++!speedChanged(S) : true <- -+ref_speed(S); .print("Ref speed changed to ", S); .send(speedController, achieve, speedChanged(S)).
++!distanceChanged(D1,D2) : true <- -+prev_distance(D1); -+prev_distance(D2); .print("Distances changed to ", D1, ", ", D2); .send(distanceMonitor, achieve, distanceChanged(D1,D2)).
 
-
-
-+!start : true <- .print("hello world.").
