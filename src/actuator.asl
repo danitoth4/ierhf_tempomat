@@ -18,7 +18,7 @@ prev_distance(0).
 	.send(speedController, askOne, speed_change(X), S);
 	+D; +S; !decide;
 	.at("now +1 s", {+!control_vehicle}).
-
+	
 +!speed_changed(S) : true <-
 	-+ref_speed(S);
 	.print("Ref speed changed to ", S);
@@ -43,4 +43,4 @@ prev_distance(0).
 	.send(speedController, achieve, accelerate).
 		
 +!decide : true <-
-	.print("can't decide").
+	.send(speedController, achieve, maintain_speed).

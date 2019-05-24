@@ -20,14 +20,19 @@ actual_speed(0).
 +!accelerate : true <-
 	?actual_speed(S);
 	NewSpeed = S + 5;
-	print(new_speed);
 	!actual_speed_changed(NewSpeed).
 
-+!slow_down : true <-
++!slow_down : actual_speed(S) & S > 0 <-
 	?actual_speed(S);
 	NewSpeed = S - 5;
-	print(new_speed);
 	!actual_speed_changed(NewSpeed).
+	
++!slow_down : actual_speed(S) & S == 0 <-
+	!maintain_speed.
+
++!maintain_speed : true <-
+	?actual_speed(S);
+	!actual_speed_changed(S).
 
 +?speed_change(X) : actual_speed(A) & ref_speed(R) & A > R <-
 	X = slow_down.
