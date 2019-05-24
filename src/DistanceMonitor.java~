@@ -1,0 +1,18 @@
+import jason.architecture.*;
+import jason.asSemantics.ActionExec;
+import jason.asSyntax.ASSyntax;
+import jason.asSyntax.Literal;
+import java.awt.GridLayout;
+import javax.swing.*;
+import java.awt.event.*;
+
+
+public class DistanceMonitorGUI extends AgArch
+{		
+	public int claculateDesiredSpeed(double speed, double dist_t_1, double dist_t)
+	{
+		double t = dist_t / speed;
+		int i = (int)Math.floor(t);
+		return i * 5;
+	}
+}

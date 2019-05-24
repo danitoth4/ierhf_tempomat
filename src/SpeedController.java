@@ -7,14 +7,14 @@ import javax.swing.*;
 import java.awt.event.*;
 
 
-public class SpeedControllerGUI extends AgArch
+public class SpeedController extends AgArch
 {
 	GridLayout grid;
 	JTextField referenceSpeedField;
 	JFrame frame;
 	JButton setSpeedButton;
 	
-	public SpeedControllerGUI()
+	public SpeedController()
 	{
 		super();
 		
@@ -41,6 +41,6 @@ public class SpeedControllerGUI extends AgArch
 		frame.add(setSpeedButton);
 		frame.setSize(300, 100);
 		frame.setResizable(false);
-		frame.setVisible(true);
+		//frame.setVisible(true);
 	}
 }
